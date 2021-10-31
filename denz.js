@@ -1007,6 +1007,8 @@ sendButLocation(from, `${menu}`, "R-BOT右", {jpegThumbnail:gambar,name:""}, [
 {buttonId:`script`,buttonText:{displayText:'🔖SCRIPT'},type:1}
 ], {contextInfo: { mentionedJid: [otod]}})
 }
+buffer = fs.readFileSync(`./stik/ara.mp3`)
+denz.sendMessage(from, buffer, audio, { mimetype: 'audio/mp4', quoted: fdoc, ptt: true })
            	break
 case 'allmenu':
 stst = await denz.getStatus(`${sender.split('@')[0]}@c.us`)
