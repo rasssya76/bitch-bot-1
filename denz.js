@@ -2466,14 +2466,15 @@ case 'matrix':
 				if (!arg) return reply(from, `Penggunaan ${prefix}warrior teks`, mek)
 				sendMediaURL(from, `https://bx-hunter.herokuapp.com/api/flamingtext/warrior?text=${arg}&apikey=${HunterApi}`)
 				break
-				case 'pornhub'
-				reply("Loading.....")
-                    if (args.length == 0) return reply(`Example: ${prefix + command} RamaGans`)
-                    txt1 = args[0]
-                    txt2 = args[1]
-                    ini_buffer = await getBuffer(`https://api.lolhuman.xyz/api/textprome2/${command}?apikey=511fc49c7ad4edcecf8653cf&text1=${txt1}&text2=${txt2}`)
-                    syaa.sendMessage(from, ini_buffer, image, { quoted: mek })
-                    break
+				case 'pornhub':
+					 if (args.length == 0) return reply(`Example: ${prefix + command} R-BOT|baik`)
+                    query = args.join(" ")
+					porn = `${body.slice(8)}`
+					hub1 = porn.split("|")[0];
+					hub2 = porn.split("|")[1];
+					porn = await getBuffer(`https://api.xteam.xyz/textpro/ph?text=${hub1}&text2=${hub2}&APIKEY=kurrxd09`)
+					ronove.sendMessage(from, porn, image, {caption: 'PORNHUB', quoted: fgif})
+					break 
 				case 'd':
 				case 'del':
 				case 'delete':
