@@ -2473,7 +2473,7 @@ case 'matrix':
 					hub1 = porn.split("|")[0];
 					hub2 = porn.split("|")[1];
 					porn = await getBuffer(`https://api.xteam.xyz/textpro/ph?text=${hub1}&text2=${hub2}&APIKEY=kurrxd09`)
-					denz.sendMessage(from, porn, image, {caption: 'PORNHUB', quoted: fgif})
+					denz.sendMessage(from, porn, image, {caption: 'PORNHUB', quoted: fgi})
 					break 
 				case 'd':
 				case 'del':
