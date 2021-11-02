@@ -12,16 +12,16 @@ RUN apt-get update && \
   rm -rf /var/lib/apt/lists/*
 
 COPY package.json .
-npm install
-npm i figlet 
-npm i terminal-kit 
-npm i figlet 
-npm i qrcode 
-npm i base64-img 
-npm i ytsr 
-npm i google-it 
-npm i mathjs 
-npm i @adiwajshing/baileys@latest
+RUN npm install
+RUN npm i figlet 
+RUN npm i terminal-kit 
+RUN npm i figlet 
+RUN npm i qrcode 
+RUN npm i base64-img 
+RUN npm i ytsr 
+RUN npm i google-it 
+RUN npm i mathjs 
+RUN npm i @adiwajshing/baileys@latest
 
 COPY . .
 
