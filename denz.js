@@ -51,6 +51,7 @@ const { exec } = require('child_process')
 const { fetchJson } = require('./lib/fetcher')
 const { uploadimg, upload } = require('./lib/uploadimg')
 const { webp2mp4File } = require('./lib/webp2mp4')
+const _registered = JSON.parse(fs.readFileSync('./database/registered.json'))
 const { lirikLagu } = require('./lib/lirik.js')
 const { wikiSearch } = require('./lib/wiki.js')
 const { herolist } = require('./lib/herolist.js')
@@ -290,11 +291,11 @@ try {
 		}
 		if (antibot === true) return
 		const katalog = (teks) => {
-             res = denz.prepareMessageFromContent(from,{ "orderMessage": { "itemCount": 321, "message": teks, "footerText": "*_© 𝐹𝑎𝑗𝑎𝑟 𝐴𝑙𝑓𝑎𝑟𝑖𝑧𝑖_*", "thumbnail": ofrply, "surface": 'CATALOG' }}, {quoted:ftrol})
+             res = denz.prepareMessageFromContent(from,{ "orderMessage": { "itemCount": 321, "message": teks, "footerText": "*_© R-BOT_*", "thumbnail": ofrply, "surface": 'CATALOG' }}, {quoted:ftrol})
              denz.relayWAMessage(res)
         }
         const grupinv = (teks) => {
-        	grup = denz.prepareMessageFromContent(from, { "groupInviteMessage": { "groupJid": '6288213840883-1616169743@g.us', "inviteCode": 'https://chat.whatsapp.com/Dgt6JhzTvlmEor8Zz23fHx', "groupName": `${NamaBot}`, "footerText": "*_© 𝐹𝑎𝑗𝑎𝑟 𝐴𝑙𝑓𝑎𝑟𝑖𝑧𝑖_*", "jpegThumbnail": ofrply, "caption": teks}}, {quoted:finv})
+        	grup = denz.prepareMessageFromContent(from, { "groupInviteMessage": { "groupJid": '6288213840883-1616169743@g.us', "inviteCode": 'https://chat.whatsapp.com/Dgt6JhzTvlmEor8Zz23fHx', "groupName": `${NamaBot}`, "footerText": "*_© R-BOT_*", "jpegThumbnail": ofrply, "caption": teks}}, {quoted:finv})
             denz.relayWAMessage(grup)
         }
 		idttt = []
@@ -593,7 +594,7 @@ denz.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
             if (isAfk(mek.key.remoteJid)) return
             addafk(mek.key.remoteJid)
 			heheh = ms(Date.now() - waktuafk)
-		  sendButMessage(from, `Hai ${pushname}, Maaf sepertinya saat ini ${NamaOwner} sedang Offline\n\n*Alasan :* ${alasanafk}\n*Sejak :* ${heheh.hours} Jam, ${heheh.minutes} Menit, ${heheh.seconds} Detik\n\nSilahkan hubungi lagi setelah Online`, "*_© 𝐹𝑎𝑗𝑎𝑟 𝐴𝑙𝑓𝑎𝑟𝑖𝑧𝑖_*", [{buttonId: 'simi', buttonText: {displayText: 'Oke'}, type: 1}], {quoted:ftrol, contextInfo: { forwardingScore: 508, isForwarded: true}})
+		  sendButMessage(from, `Hai ${pushname}, Maaf sepertinya saat ini ${NamaOwner} sedang Offline\n\n*Alasan :* ${alasanafk}\n*Sejak :* ${heheh.hours} Jam, ${heheh.minutes} Menit, ${heheh.seconds} Detik\n\nSilahkan hubungi lagi setelah Online`, "*_© R-BOT_*", [{buttonId: 'simi', buttonText: {displayText: 'Oke'}, type: 1}], {quoted:ftrol, contextInfo: { forwardingScore: 508, isForwarded: true}})
 			}
 		}
 		if (mek.key.remoteJid.endsWith('@g.us') && offline) {
@@ -606,7 +607,7 @@ denz.sendMessage(id, buttonMessages, MessageType.buttonsMessage, options)
                         if (isAfk(mek.key.remoteJid)) return
                         addafk(mek.key.remoteJid)
 						heheh = ms(Date.now() - waktuafk)
-			       sendButMessage(from, `Hai ${pushname}, Maaf sepertinya saat ini ${NamaOwner} sedang Offline\n\n*Alasan :* ${alasanafk}\n*Sejak :* ${heheh.hours} Jam, ${heheh.minutes} Menit, ${heheh.seconds} Detik\n\nSilahkan hubungi lagi setelah Online`, "*_© 𝐹𝑎𝑗𝑎𝑟 𝐴𝑙𝑓𝑎𝑟𝑖𝑧𝑖_*", [{buttonId: 'simi', buttonText: {displayText: 'Oke'}, type: 1}], {quoted:ftrol, contextInfo: { forwardingScore: 508, isForwarded: true}})
+			       sendButMessage(from, `Hai ${pushname}, Maaf sepertinya saat ini ${NamaOwner} sedang Offline\n\n*Alasan :* ${alasanafk}\n*Sejak :* ${heheh.hours} Jam, ${heheh.minutes} Menit, ${heheh.seconds} Detik\n\nSilahkan hubungi lagi setelah Online`, "*_© R-BOT_*", [{buttonId: 'simi', buttonText: {displayText: 'Oke'}, type: 1}], {quoted:ftrol, contextInfo: { forwardingScore: 508, isForwarded: true}})
 					}
 				}
 						}
@@ -811,7 +812,7 @@ console.log('\x1b[1;37m>', '[', '\x1b[1;32mEXEC\x1b[1;37m', ']', time, color(">"
 } catch(e){
 reply(String(e))
 }
-}
+} 
 			// AUTO
 			for (let anji of setik){
 				if (budy === anji){
@@ -941,7 +942,16 @@ stst = await denz.getStatus(`${sender.split('@')[0]}@c.us`)
 				stst = stst.status == 401 ? '' : stst.status
 			num = await fetchJson(`https://api.telnyx.com/anonymous/v2/number_lookup/${senderNumber}`, {method: 'get'})
 fill =`Hai Kak ${pushname}, ${tampilUcapan}
-Silahkan Pilih Untuk Menampilkan Menu
+
+   *_LIST MENU_*
+   
+➤ ${prefix}AllMenu
+➤ ${prefix}Ownermenu
+➤ ${prefix}DownloadMenu
+➤ ${prefix}MakerMenu
+➤ ${prefix}OtherMenu
+
+➤ ${prefix}GroupMenu
 
 Jika Button Tidak Muncul Ketik .allmenu`
 menu =`R-BOT右`
@@ -1011,6 +1021,8 @@ buffer = fs.readFileSync(`./stik/ara.mp3`)
 denz.sendMessage(from, buffer, audio, { mimetype: 'audio/mp4', quoted: fdoc, ptt: true })
            	break
 case 'allmenu':
+case 'AllMenu':
+case 'Allmenu':
 stst = await denz.getStatus(`${sender.split('@')[0]}@c.us`)
 				stst = stst.status == 401 ? '' : stst.status
 			num = await fetchJson(`https://api.telnyx.com/anonymous/v2/number_lookup/${senderNumber}`, {method: 'get'})
@@ -1693,7 +1705,7 @@ mhan = await denz.prepareMessage(from, buff, image, {thumbnail: buff})
 const buttonMessagessss = {
 imageMessage: mhan.message.imageMessage,
 contentText: `Ngedark Bos`,
-footerText: '*_© 𝐹𝑎𝑗𝑎𝑟 𝐴𝑙𝑓𝑎𝑟𝑖𝑧𝑖_*',
+footerText: '*_© R-BOT_*',
 buttons: gbutsan,
 headerType: 4
 }
@@ -1843,7 +1855,7 @@ break
 const buttons = [{buttonId: `menu`, buttonText: {displayText: 'BACK➡️'}, type: 1},{buttonId: `owner`, buttonText: {displayText: 'OWNER👤'}, type: 1}]
 const buttonMessage = {
     contentText: `${anu}`,
-    footerText: '*_© 𝐹𝑎𝑗𝑎𝑟 𝐴𝑙𝑓𝑎𝑟𝑖𝑧𝑖_*',
+    footerText: '*_©R-BOT_*',
     buttons: buttons,
     headerType: 1
 }
@@ -1936,6 +1948,7 @@ sendMediaURL(from,`${res.result.link}`,`${res.result.desc}`)
                     case 'tiktok':
                    case 'tiktokdl':
                    case 'tiktoknowm':
+                   
 if (!c) return reply('Linknya?')
 var { TiktokDownloader } = require('./lib/tiktokdl')
 reply(mess.wait)
@@ -3511,6 +3524,7 @@ denz.sendMessage(from, 'yaudah oke',text, {
 })
 break
                 case 'ytmp4':
+                
 						if (args.length === 0) return reply(`Kirim perintah *${prefix}ytmp4 [linkYt]*`)
 						let isLinks2 = args[0].match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/)
 						if (!isLinks2) return reply(mess.error.Iv)
@@ -3558,7 +3572,7 @@ break
                 reply(`Error: ${e.message}`)
             }
             break
-					case 'ytmp3':
+					case 'ytmp3':		
 						if (args.length === 0) return reply(`Kirim perintah *${prefix}ytmp3 [linkYt]*`)
 						let isLinks = args[0].match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/)
 						if (!isLinks) return reply(mess.error.Iv)
